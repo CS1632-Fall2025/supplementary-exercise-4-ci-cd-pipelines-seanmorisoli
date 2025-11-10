@@ -31,7 +31,7 @@ public class CatUnitTest {
 		// Passing InstanceType.IMPL as the first parameter will create a real cat using your CatImpl implementation.
 		// Passing InstanceType.MOCK as the first parameter will create a mock cat using Mockito.
 		// Which type is the correct choice for this unit test?  I'll leave it up to you.  The answer is in the Unit Testing Part 2 lecture. :)
-		// TODO: Fill in
+		c = Cat.createInstance(InstanceType.IMPL, 1, "Jennyanydots");
 	}
 
 	@After
@@ -52,7 +52,9 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testGetId() {
-		// TODO: Fill in
+		int actualId = c.getId();
+
+		assertEquals("Cat ID should be 1", 1, actualId);
 	}
 
 	/**
@@ -66,7 +68,9 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testGetName() {
-		// TODO: Fill in
+		String actualName = c.getName();
+		
+		assertEquals("Cat name should be Jennyanydots", "Jennyanydots", actualName);
 	}
 
 	/**
@@ -80,7 +84,9 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testGetRented() {
-		// TODO: Fill in
+		boolean actualRented = c.getRented();
+
+		assertFalse("Cat should not be rented initially", actualRented);
 	}
 
 	/**
@@ -94,7 +100,9 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testToString() {
-		// TODO: Fill in
+		String actualString = c.toString();
+
+		assertEquals("toString should return ID 1. Jennyanydots", "ID 1. Jennyanydots", actualString);
 	}
 
 	/**
@@ -109,7 +117,10 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testRentCat() {
-		// TODO: Fill in
+		c.rentCat();
+
+		boolean actualRented = c.getRented();
+		assertTrue("Cat should be rented after calling rentCat()", actualRented);
 	}
 
 	/**
@@ -125,7 +136,11 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testReturnCat() {
-		// TODO: Fill in
+		c.rentCat();
+		c.returnCat();
+
+		boolean actualRented = c.getRented();
+		assertFalse("Cat should not be rented after calling returnCat()", actualRented);
 	}
 
 	/**
@@ -140,7 +155,10 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testRenameCat() {
-		// TODO: Fill in
+		c.renameCat("Garfield");
+
+		assertEquals("Cat name should be Garfield after renaming", "Garfield", c.getName());
+		assertEquals("toString should return 'ID 1. Garfield' after renaming", "ID 1. Garfield", c.toString());
 	}
 
 }
