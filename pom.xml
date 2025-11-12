@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.seanmorisoli</groupId>
+  <groupId>io.github.wonsunahn</groupId>
   <artifactId>cs1632-cicd-pipelines-smm399</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
