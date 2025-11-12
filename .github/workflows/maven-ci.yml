@@ -63,14 +63,14 @@ jobs:
 
     steps:
 
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
     - name: Restore cached build
       uses: actions/cache@v3
       with:
         key: cached-build-${{github.sha}}
         path: .
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
         
     # https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission
     - name: Update dependency graph
